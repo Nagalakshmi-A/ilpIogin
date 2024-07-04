@@ -135,7 +135,7 @@
       <tbody>
         <tr *ngFor="let course of filteredHistory">
           <td>{{ course.coursename }}</td>
-          <td>{{ course.status }}</td>
+          <td>{{ course.dispStatus }}</td>
           <td>{{ course.score }}</td>
           <td>{{ course.date | date: 'dd/MM/yyyy' }}</td>
           <td>{{ course.year }}</td>
@@ -163,7 +163,7 @@
       <tbody>
         <tr *ngFor="let course of filteredHistory">
           <td>{{ course.coursename }}</td>
-          <td>{{ course.status }}</td>
+          <td>{{ course.dispStatus }}</td>
           <td>{{ course.score }}</td>
           <td>{{ course.date | date: 'dd/MM/yyyy' }}</td>
           <td>{{ course.year }}</td>
@@ -180,7 +180,7 @@
     <div class="card-outer-container hist-mbl" *ngIf="!isTableView">
       <div *ngFor="let course of filteredHistory" class="card-container">
         <div class="course-desc">Course Name - <span class="course-val">{{ course.coursename }}</span></div>
-        <div class="course-desc">Status - <span class="course-val">{{ course.status }}</span></div>
+        <div class="course-desc">Status - <span class="course-val">{{ course.dispStatus }}</span></div>
         <div class="course-desc">Score - <span class="course-val">{{ course.score }}</span></div>
         <div class="course-desc">Date of Completion - <span class="course-val">{{ course.date | date: 'dd/MM/yyyy' }}</span></div>
         <div class="course-desc">Year of Completion - <span class="course-val">{{ course.year }}</span></div>

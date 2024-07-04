@@ -13,6 +13,7 @@ export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
   invalidLogin = false;
+  disbleButton = false;
   constructor(public router: Router, public dataService: DataService) {
 
   }
@@ -25,7 +26,11 @@ export class LoginComponent implements OnInit {
     })
   }
   onFormSubmit() {
+    this.errorMsg = "Fetching details. This might take a few moments";
+    this.invalidLogin = true;
+    this.disbleButton = true;
     this.dataService.getJSON().subscribe((response: any) => {
+      this.disbleButton = false;
       this.dataService.isDataLoaded = true;
       console.log(this.loginForm.value);
       const loginResult = this.dataService.setEmployeeData((this.loginForm.value['empid']).replace(/^GMM/i, ''));

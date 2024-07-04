@@ -11,6 +11,9 @@ export class DataService {
   isLoggedIn = false;
   empIdArray = [];
   dbDumpJSONArray:any;
+  industryList:any;
+  courseApplicability:any;
+  courseListObject:any;
   loggedInEmployee:any;
   private employeeParsedData:any = {};
   private courseList:any = [];
@@ -34,7 +37,6 @@ export class DataService {
       "BAFAF": "Basic AFA Foundational",
       "HYDCRF": "Hydraulic Component Repair Foundational",
       "EP1F": "Electric Power 1 Foundational",
-      "FSAF": "Foundational Skill Assessment"
     },
     "advanced": {
       "ADES": "Advanced Diesel Engine Systems",
@@ -50,23 +52,22 @@ export class DataService {
       "ERB": "Engine Rebuild (Gmmco WS)",
       "AFA1": "Applied Failure Analysis 1",
       "AFA2": "AFA II",
-      "AMSA": "Advanced Machine System Hands-On Assessment"
-    },
+    }/*,
     "advancedcat": {
       "DETS": "Diesel Engine System Troubleshooting",
       "HSTS": "Hydraulic System Troubleshooting",
       "CREU": "Component Reuse",
       "PTTS": "Powertrain System Troubleshooting",
       "ACTS": "Airconditioning System Troubleshooting",
-      "CARADV": "Advanced CAT Certified Machine Technician Skill Assessment",
+      "CARADV": "Advanced CAT Certified Machine Technician Skill Assessment",//xx
       "CEP2": "CAT Electric Power II",
       "CEP3": "CAT Electric Power III",
       "ATS": "Auto Transfer Switch & Switchgear Basics",
-      "CEPADV": "Certified Electric Power Generation Hands-On Assessment",
+      "CEPADV": "Certified Electric Power Generation Hands-On Assessment",//xx
       "MEST": "Marine Engine System Troubleshooting",
       "PTRB": "Powertrain Components Rebuild",
       "HYDRB": "Hydraulic Component Rebuild"
-    }
+    }*/
   };
 
   constructor(public http: HttpClient) { }
@@ -82,6 +83,22 @@ export class DataService {
         //console.log(this.empIdArray);
       })
     );
+  }
+
+  public getCourseListJSON():Observable<any> {
+    return this.http.get("./assets/json/course_applicability.json")
+    .pipe(
+      tap((response:any) => {
+        this.courseApplicability = response["Course Applicability"];
+        this.industryList = response["Industry"].map((item:any) => item["SBU_CAT_CLASSIFICATION"]);
+        console.log(this.industryList);
+        this.courseListObject = {};
+        this.industryList.forEach((elem:any) => {
+          this.courseListObject[elem] = this.courseApplicability.filter((item:any) => item[elem]);
+        });
+        console.log(this.courseListObject);
+      })
+    )
   }
 
   public setEmployeeData(empid:string) {
@@ -107,6 +124,7 @@ export class DataService {
 
   getEmployeeData() {
     this.employeeParsedData = {};
+    this.employeeParsedData.actualCurrentLevel = (this.loggedInEmployee['Current TCDP Certification Level']).replace(/[^A-Z0-9]+/ig, "").toLowerCase();
     this.employeeParsedData.empname = this.loggedInEmployee['Name'];
     this.employeeParsedData.empid = this.loggedInEmployee['Emp Id'];
     this.employeeParsedData.location = this.loggedInEmployee["Location (Area) Apr'24"];
@@ -136,8 +154,14 @@ export class DataService {
 
   getCoursePercentage(courseType: string) {
 
+    /*console.log('Get Current Level Percent');
+    const actualCurrentLevel = (this.loggedInEmployee['Current TCDP Certification Level']).replace(/[^A-Z0-9]+/ig, "").toLowerCase();
+    console.log(actualCurrentLevel);
+    if(courseType == actualCurrentLevel) {
+      return 100;
+    }*/
     const courseList = this.courseList.filter((item:any) => item.type == courseType);
-    const completedCourse = courseList.filter((item:any) => item.status == 'Completed')
+    const completedCourse = courseList.filter((item:any) => item.status == 'Completed');
     return Math.floor((completedCourse.length/courseList.length)*100);
   }
 
@@ -150,12 +174,7 @@ export class DataService {
 
     this.employeeParsedData.fin2023 = tempFin2023.length > 4?tempFin2023.slice(0, 4): tempFin2023;
 
-    if(tempFin2023.length == 0) {
-      this.employeeParsedData.fin2023.push({coursename: 'N/A', status: 'N/A'});
-      this.employeeParsedData.fin2023.push({coursename: 'N/A', status: 'N/A'});
-      this.employeeParsedData.fin2023.push({coursename: 'N/A', status: 'N/A'});
-      this.employeeParsedData.fin2023.push({coursename: 'N/A', status: 'N/A'});
-    }
+    
     console.log(tempFin2024.length)
     if(tempFin2024.length > 4) {
       this.employeeParsedData.fin2024 = tempFin2024.slice(0, 4);
@@ -176,7 +195,29 @@ export class DataService {
     } else {
       this.employeeParsedData.fin2025 = tempFin2025;
     }
+
+    if(tempFin2023.length == 0) {
+      this.employeeParsedData.fin2023.push({coursename: 'N/A', status: 'N/A'});
+      this.employeeParsedData.fin2023.push({coursename: 'N/A', status: 'N/A'});
+      this.employeeParsedData.fin2023.push({coursename: 'N/A', status: 'N/A'});
+      this.employeeParsedData.fin2023.push({coursename: 'N/A', status: 'N/A'});
+    }
+
+    if(tempFin2024.length == 0) {
+      this.employeeParsedData.fin2024.push({coursename: 'N/A', status: 'N/A'});
+      this.employeeParsedData.fin2024.push({coursename: 'N/A', status: 'N/A'});
+      this.employeeParsedData.fin2024.push({coursename: 'N/A', status: 'N/A'});
+      this.employeeParsedData.fin2024.push({coursename: 'N/A', status: 'N/A'});
+    }
+
+    if(tempFin2025.length == 0) {
+      this.employeeParsedData.fin2025.push({coursename: 'N/A', status: 'N/A'});
+      this.employeeParsedData.fin2025.push({coursename: 'N/A', status: 'N/A'});
+      this.employeeParsedData.fin2025.push({coursename: 'N/A', status: 'N/A'});
+      this.employeeParsedData.fin2025.push({coursename: 'N/A', status: 'N/A'});
+    }
   }
+
 
   sortByDate(courses:any) {
     return courses.sort((a:any,b:any) => {
@@ -187,6 +228,12 @@ export class DataService {
 
   getCurrentLevel() {
     let currentStatus = 'Not Certified';
+    console.log('Get Current Level');
+    /*const actualCurrentLevel = (this.loggedInEmployee['Current TCDP Certification Level']).replace(/[^A-Z0-9]+/ig, "").toLowerCase();
+    console.log(actualCurrentLevel);
+    if(this.employeeParsedData.courses[actualCurrentLevel].status == false) {
+      this.employeeParsedData.courses[actualCurrentLevel].status = true;
+    }*/
     if(this.employeeParsedData.courses.prefoundational.status) {
       currentStatus = 'Pre - Foundational';
     }
@@ -198,9 +245,9 @@ export class DataService {
       currentStatus = 'Advanced';
     }
 
-    if(this.employeeParsedData.courses.advancedcat.status) {
+    /*if(this.employeeParsedData.courses.advancedcat.status) {
       currentStatus = 'Advanced - CAT';
-    }
+    }*/
     return currentStatus;
 
   }
@@ -215,12 +262,12 @@ export class DataService {
     }
 
     if(this.employeeParsedData.courses.advanced.status) {
-      targetStatus = 'Advanced - CAT';
-    }
-
-    if(this.employeeParsedData.courses.advancedcat.status) {
       targetStatus = 'Contact RM';
     }
+
+    /*if(this.employeeParsedData.courses.advancedcat.status) {
+      targetStatus = 'Contact RM';
+    }*/
     return targetStatus;
 
   }
@@ -231,7 +278,7 @@ export class DataService {
     courses.prefoundational = this.parseCourse('prefoundational', 6);
     courses.foundational = this.parseCourse('foundational', 3);
     courses.advanced = this.parseCourse('advanced', 5);
-    courses.advancedcat = this.parseCourse('advancedcat', 5);
+    //courses.advancedcat = this.parseCourse('advancedcat', 5);
     return courses;
 
   }
@@ -239,6 +286,8 @@ export class DataService {
   parseCourse(courseType:string, numberOfAttempts:number) {
     const courseObject: any = {};
     const courses:any = [];
+    console.log('=======================');
+    console.log(this.courseObject);
 
     const courseList = Object.keys(this.courseObject[courseType]);
     courseList.forEach((elem) => {
@@ -266,8 +315,10 @@ export class DataService {
             courseAttemptObj.finYear = this.getFinancialYear(courseAttemptObj.date);
             courseAttemptObj.score = finalResultObj.score;
             courseAttemptObj.status = 'Completed';
+            courseAttemptObj.dispStatus = 'Completed';
             courseAttemptObj.type = courseType;
             courseItem.status = 'Completed';
+            courseItem.dispStatus = 'Completed';
             this.courseList.push(courseAttemptObj);
         courseItem.finalScore = finalResultObj.score;
         courseItem.completedDate = finalResultObj.date;
@@ -276,6 +327,25 @@ export class DataService {
         const courseAttemptObj:any = {};
           courseAttemptObj.coursename = courseItem.courseDesc;
           courseAttemptObj.status = 'Not Completed';
+          courseAttemptObj.dispStatus = 'Not Completed';
+          courseItem.status = 'Not Completed';
+            courseItem.dispStatus = 'Not Completed';
+          if(this.employeeParsedData.actualCurrentLevel == courseType
+            || (this.employeeParsedData.actualCurrentLevel == 'foundational' && courseType == 'prefoundational')
+            || (this.employeeParsedData.actualCurrentLevel == 'advanced' && (courseType == 'prefoundational' || courseType == 'foundational'))
+          ) {
+            courseAttemptObj.status = 'Completed';
+            courseItem.status = 'Completed';
+          }
+
+          /*if(this.employeeParsedData.actualCurrentLevel == 'foundational' && courseType == 'prefoundational') {
+
+          }
+
+          if(this.employeeParsedData.actualCurrentLevel == 'advanced' && (courseType == 'prefoundational' || courseType == 'foundational')) {
+
+          }*/
+          
           courseAttemptObj.type = courseType;
           this.courseList.push(courseAttemptObj);
       }
@@ -289,6 +359,8 @@ export class DataService {
       courses.push(courseItem);
     })
     courseObject.courses = courses;
+    console.log("=========================sdfdsf");
+    console.log(courses);
     courseObject.status = courses.every((elem:any) => elem.status == 'Completed');
     courseObject.type = courseType;
     return courseObject;

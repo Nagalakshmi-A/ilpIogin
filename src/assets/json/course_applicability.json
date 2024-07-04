@@ -1,0 +1,376 @@
+{
+  "Course Applicability": [
+    {
+      "Proficiency": "Pre Foundational",
+      "Course Desc": "Service Industry Pre Foundational",
+      "CourseID": "SIPF",
+      "South SBU": "x",
+      "North SBU": "x",
+      "East SBU": "x",
+      "West SBU": "x",
+      "CIL": "x",
+      "ETB-EPD": "x",
+      "ETB-MPD": "x",
+      "WS-MRC": "x",
+      "WS-CRC-ENG": "x",
+      "WS-CRC-HYD": "x",
+      "WS-CRC-PT": "x"
+    },
+    {
+      "Proficiency": "Pre Foundational",
+      "Course Desc": "Diesel Engine Pre Foundational",
+      "CourseID": "DEPF",
+      "South SBU": "x",
+      "North SBU": "x",
+      "East SBU": "x",
+      "West SBU": "x",
+      "CIL": "x",
+      "ETB-EPD": "x",
+      "ETB-MPD": "x",
+      "WS-MRC": "x",
+      "WS-CRC-ENG": "x"
+    },
+    {
+      "Proficiency": "Pre Foundational",
+      "Course Desc": "Hydraulic Pre Foundational",
+      "CourseID": "HYDPF",
+      "South SBU": "x",
+      "North SBU": "x",
+      "East SBU": "x",
+      "West SBU": "x",
+      "CIL": "x",
+      "WS-MRC": "x",
+      "WS-CRC-HYD": "x",
+      "WS-CRC-PT": "x"
+    },
+    {
+      "Proficiency": "Pre Foundational",
+      "Course Desc": "Power Train Pre Foundational",
+      "CourseID": "PTPF",
+      "South SBU": "x",
+      "North SBU": "x",
+      "East SBU": "x",
+      "West SBU": "x",
+      "CIL": "x",
+      "WS-MRC": "x",
+      "WS-CRC-PT": "x"
+    },
+    {
+      "Proficiency": "Pre Foundational",
+      "Course Desc": "Electrical Pre Foundational",
+      "CourseID": "EEPF",
+      "South SBU": "x",
+      "North SBU": "x",
+      "East SBU": "x",
+      "West SBU": "x",
+      "CIL": "x",
+      "ETB-EPD": "x",
+      "ETB-MPD": "x",
+      "WS-MRC": "x",
+      "WS-CRC-ENG": "x",
+      "WS-CRC-HYD": "x (A)",
+      "WS-CRC-PT": "x (A)"
+    },
+    {
+      "Proficiency": "Foundational",
+      "Course Desc": "Service Industry Foundational",
+      "CourseID": "SIF",
+      "South SBU": "x",
+      "North SBU": "x",
+      "East SBU": "x",
+      "West SBU": "x",
+      "CIL": "x",
+      "ETB-EPD": "x",
+      "ETB-MPD": "x",
+      "WS-MRC": "x",
+      "WS-CRC-ENG": "x",
+      "WS-CRC-HYD": "x",
+      "WS-CRC-PT": "x"
+    },
+    {
+      "Proficiency": "Foundational",
+      "Course Desc": "Diesel Engine Foundational",
+      "CourseID": "DEF",
+      "South SBU": "x",
+      "North SBU": "x",
+      "East SBU": "x",
+      "West SBU": "x",
+      "CIL": "x",
+      "ETB-EPD": "x",
+      "ETB-MPD": "x",
+      "WS-MRC": "x",
+      "WS-CRC-ENG": "x"
+    },
+    {
+      "Proficiency": "Foundational",
+      "Course Desc": "Electrical Foundational",
+      "CourseID": "EEF",
+      "South SBU": "x",
+      "North SBU": "x",
+      "East SBU": "x",
+      "West SBU": "x",
+      "CIL": "x",
+      "ETB-EPD": "x",
+      "ETB-MPD": "x",
+      "WS-MRC": "x",
+      "WS-CRC-ENG": "x",
+      "WS-CRC-HYD": "x (A)",
+      "WS-CRC-PT": "x (A)"
+    },
+    {
+      "Proficiency": "Foundational",
+      "Course Desc": "Hydraulic Foundational",
+      "CourseID": "HYDF",
+      "South SBU": "x",
+      "North SBU": "x",
+      "East SBU": "x",
+      "West SBU": "x",
+      "CIL": "x",
+      "WS-MRC": "x",
+      "WS-CRC-HYD": "x",
+      "WS-CRC-PT": "x"
+    },
+    {
+      "Proficiency": "Foundational",
+      "Course Desc": "Power Train Foundational",
+      "CourseID": "PTF",
+      "South SBU": "x",
+      "North SBU": "x",
+      "East SBU": "x",
+      "West SBU": "x",
+      "CIL": "x",
+      "WS-MRC": "x",
+      "WS-CRC-PT": "x"
+    },
+    {
+      "Proficiency": "Foundational",
+      "Course Desc": "Brakes Foundational",
+      "CourseID": "BrakesF",
+      "South SBU": "x",
+      "North SBU": "x",
+      "East SBU": "x",
+      "West SBU": "x",
+      "CIL": "x",
+      "WS-MRC": "x"
+    },
+    {
+      "Proficiency": "Foundational",
+      "Course Desc": "Aircondition Foundational",
+      "CourseID": "ACF",
+      "South SBU": "x",
+      "North SBU": "x",
+      "East SBU": "x",
+      "West SBU": "x",
+      "CIL": "x",
+      "WS-MRC": "x"
+    },
+    {
+      "Proficiency": "Foundational",
+      "Course Desc": "Hydraulic Component Repair Foundational",
+      "CourseID": "HYDCRF",
+      "South SBU": "x",
+      "North SBU": "x",
+      "East SBU": "x",
+      "West SBU": "x",
+      "CIL": "x",
+      "WS-CRC-HYD": "x"
+    },
+    {
+      "Proficiency": "Foundational",
+      "Course Desc": "Basic AFA Foundational",
+      "CourseID": "BAFAF",
+      "South SBU": "x",
+      "North SBU": "x",
+      "East SBU": "x",
+      "West SBU": "x",
+      "CIL": "x",
+      "ETB-EPD": "x",
+      "ETB-MPD": "x",
+      "WS-MRC": "x",
+      "WS-CRC-ENG": "x",
+      "WS-CRC-HYD": "x",
+      "WS-CRC-PT": "x"
+    },
+    {
+      "Proficiency": "Foundational",
+      "Course Desc": "Electric Power 1 Foundational",
+      "CourseID": "EP1F",
+      "ETB-EPD": "x",
+      "ETB-MPD": "x"
+    },
+    {
+      "Proficiency": "Advanced",
+      "Course Desc": "Advanced Diesel Engine Systems",
+      "CourseID": "ADES",
+      "South SBU": "x",
+      "North SBU": "x",
+      "East SBU": "x",
+      "West SBU": "x",
+      "CIL": "x",
+      "ETB-EPD": "x",
+      "ETB-MPD": "x",
+      "WS-MRC": "x",
+      "WS-CRC-ENG": "x"
+    },
+    {
+      "Proficiency": "Advanced",
+      "Course Desc": "Advanced Hydraulics System",
+      "CourseID": "AHS",
+      "South SBU": "x",
+      "North SBU": "x",
+      "East SBU": "x",
+      "West SBU": "x",
+      "CIL": "x",
+      "WS-MRC": "x",
+      "WS-CRC-HYD": "x"
+    },
+    {
+      "Proficiency": "Advanced",
+      "Course Desc": "Advanced Powertrain System",
+      "CourseID": "APTS",
+      "South SBU": "x",
+      "North SBU": "x",
+      "East SBU": "x",
+      "West SBU": "x",
+      "CIL": "x",
+      "WS-MRC": "x",
+      "WS-CRC-PT": "x"
+    },
+    {
+      "Proficiency": "Advanced",
+      "Course Desc": "Advanced Brakes System",
+      "CourseID": "ABS",
+      "South SBU": "x",
+      "North SBU": "x",
+      "East SBU": "x",
+      "West SBU": "x",
+      "CIL": "x",
+      "WS-MRC": "x"
+    },
+    {
+      "Proficiency": "Advanced",
+      "Course Desc": "Advanced Airconditioning System",
+      "CourseID": "AACS",
+      "South SBU": "x",
+      "North SBU": "x",
+      "East SBU": "x",
+      "West SBU": "x",
+      "CIL": "x",
+      "WS-MRC": "x"
+    },
+    {
+      "Proficiency": "Advanced",
+      "Course Desc": "Powertrain Component Repair",
+      "CourseID": "PTCR",
+      "South SBU": "x",
+      "North SBU": "x",
+      "East SBU": "x",
+      "West SBU": "x",
+      "CIL": "x",
+      "WS-CRC-PT": "x (F)"
+    },
+    {
+      "Proficiency": "Advanced",
+      "Course Desc": "Diesel Engine Rebuild (Old Engine Repair)",
+      "CourseID": "DER",
+      "South SBU": "x",
+      "North SBU": "x",
+      "East SBU": "x",
+      "West SBU": "x",
+      "CIL": "x",
+      "ETB-EPD": "x",
+      "ETB-MPD": "x",
+      "WS-MRC": "x",
+      "WS-CRC-ENG": "x"
+    },
+    {
+      "Proficiency": "Advanced",
+      "Course Desc": "Electronics Troubleshooting",
+      "CourseID": "ETS",
+      "South SBU": "x",
+      "North SBU": "x",
+      "East SBU": "x",
+      "West SBU": "x",
+      "CIL": "x",
+      "ETB-EPD": "x",
+      "ETB-MPD": "x",
+      "WS-MRC": "x",
+      "WS-CRC-ENG": "x"
+    },
+    {
+      "Proficiency": "Advanced",
+      "Course Desc": "Applied Failure Analysis 1",
+      "CourseID": "AFA1",
+      "South SBU": "x",
+      "North SBU": "x",
+      "East SBU": "x",
+      "West SBU": "x",
+      "CIL": "x",
+      "ETB-EPD": "x",
+      "ETB-MPD": "x",
+      "WS-MRC": "x",
+      "WS-CRC-ENG": "x"
+    },
+    {
+      "Proficiency": "Advanced",
+      "Course Desc": "EMCP 4.1/4.2 Controls",
+      "CourseID": "EMCP",
+      "ETB-EPD": "x",
+      "ETB-MPD": "x"
+    },
+    {
+      "Proficiency": "Advanced",
+      "Course Desc": "Marine Control Systems",
+      "CourseID": "MCS",
+      "ETB-MPD": "x"
+    },
+    {
+      "Proficiency": "Advanced",
+      "Course Desc": "AFA II",
+      "CourseID": "AFA2",
+      "WS-CRC-HYD": "x",
+      "WS-CRC-PT": "x"
+    },
+    {
+      "Proficiency": "Advanced",
+      "Course Desc": "Engine Rebuild (Gmmco WS)",
+      "CourseID": "ERB",
+      "WS-CRC-ENG": "x"
+    }
+  ],
+  "Industry": [
+    {
+      "SBU_CAT_CLASSIFICATION": "South SBU"
+    },
+    {
+      "SBU_CAT_CLASSIFICATION": "North SBU"
+    },
+    {
+      "SBU_CAT_CLASSIFICATION": "East SBU"
+    },
+    {
+      "SBU_CAT_CLASSIFICATION": "West SBU"
+    },
+    {
+      "SBU_CAT_CLASSIFICATION": "CIL"
+    },
+    {
+      "SBU_CAT_CLASSIFICATION": "ETB-EPD"
+    },
+    {
+      "SBU_CAT_CLASSIFICATION": "ETB-MPD"
+    },
+    {
+      "SBU_CAT_CLASSIFICATION": "WS-MRC"
+    },
+    {
+      "SBU_CAT_CLASSIFICATION": "WS-CRC-ENG"
+    },
+    {
+      "SBU_CAT_CLASSIFICATION": "WS-CRC-HYD"
+    },
+    {
+      "SBU_CAT_CLASSIFICATION": "WS-CRC-PT"
+    }
+  ]
+}

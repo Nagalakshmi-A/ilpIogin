@@ -14,8 +14,9 @@ export class AppComponent implements OnInit {
 
   }
 
-  ngOnInit(): void {
-    this.router.navigate(['login']);  
-    
+  ngOnInit(): void {    
+    this.dataService.getCourseListJSON().subscribe((response:any) => {
+      this.router.navigate(['login']);  
+    });
   }
 }
