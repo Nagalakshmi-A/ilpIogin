@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
     this.dataService.getJSON().subscribe((response: any) => {
       this.disbleButton = false;
       this.dataService.isDataLoaded = true;
-      console.log(this.loginForm.value);
+      //console.log(this.loginForm.value);
       const loginResult = this.dataService.setEmployeeData((this.loginForm.value['empid']).replace(/^GMM/i, ''));
       this.errorMsg = loginResult.status;
       if(loginResult.state == true) {

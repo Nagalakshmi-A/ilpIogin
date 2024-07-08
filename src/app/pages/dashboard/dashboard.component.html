@@ -55,7 +55,7 @@
       <div class="target-title">Targeted Certification Level</div>
       <div class="target-vertical"></div>
       <div class="target-content">{{ employeeInfo.targetLevel }}</div>
-      <div class="target-progress-container">
+      <div *ngIf="employeeInfo.targetLevelPercent != undefined" class="target-progress-container">
         <progress class="progress-bar" id="target-progress" value="{{employeeInfo.targetLevelPercent}}" max="100"> </progress>
         <div class="progress-percent">{{employeeInfo.targetLevelPercent}}% Completed</div>
       </div>

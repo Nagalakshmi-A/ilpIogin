@@ -92,7 +92,7 @@ isTableView = false;
   }
 
   toggleView = () => {
-    console.log(this.isTableView);
+    //console.log(this.isTableView);
     this.isTableView = !this.isTableView;
   }
   ngOnDestroy(): void {
