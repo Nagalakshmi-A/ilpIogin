@@ -40,6 +40,35 @@ export class DataService {
     'WEST SBU',
     'WORKSHOP',
   ];
+  courseDescList:any = {
+      SIPF: 'Service Industry Pre Foundational',
+      EEPF: 'Electrical Pre Foundational',
+      PTPF: 'Power Train Pre Foundational',
+      HYDPF: 'Hydraulic Pre Foundational',
+      DEPF: 'Diesel Engine Pre Foundational',
+      SIF: 'Service Industry Foundational',
+      DEF: 'Diesel Engine Foundational',
+      EEF: 'Electrical Foundational',
+      HYDF: 'Hydraulic Foundational',
+      PTF: 'Power Train Foundational',
+      BrakesF: 'Brakes Foundational',
+      ACF: 'Aircondition Foundational',
+      BAFAF: 'Basic AFA Foundational',
+      HYDCRF: 'Hydraulic Component Repair Foundational',
+      EP1F: 'Electric Power 1 Foundational',
+      ADES: 'Advanced Diesel Engine Systems',
+      AHS: 'Advanced Hydraulics System',
+      APTS: 'Advanced Powertrain System',
+      ABS: 'Advanced Brakes System',
+      AACS: 'Advanced Airconditioning System',
+      PTCR: 'Powertrain Component Repair',
+      DER: 'Diesel Engine Rebuild (Old Engine Repair)',
+      ETS: 'Electronics Troubleshooting',
+      EMCP: 'EMCP 4.1/4.2 Controls',
+      MCS: 'Marine Control Systems',
+      ERB: 'Engine Rebuild (Gmmco WS)',
+      AFA2: 'AFA II',
+  }
   courseObject: any = {
     prefoundational: {
       SIPF: 'Service Industry Pre Foundational',
@@ -72,7 +101,6 @@ export class DataService {
       EMCP: 'EMCP 4.1/4.2 Controls',
       MCS: 'Marine Control Systems',
       ERB: 'Engine Rebuild (Gmmco WS)',
-      AFA1: 'Applied Failure Analysis 1',
       AFA2: 'AFA II',
     } /*,
     "advancedcat": {
@@ -379,14 +407,15 @@ export class DataService {
         }
 
         break;
-      case 'South SBU':
-      case 'North SBU':
-      case 'East SBU':
-      case 'West SBU':
+      case 'SOUTH SBU':
+      case 'NORTH SBU':
+      case 'EAST SBU':
+      case 'WEST SBU':
       case 'CIL':
         industryType = sbu;
         break;
     }
+    console.log("Industry Type:::::: ", industryType);
     return industryType;
   }
 
@@ -438,11 +467,7 @@ export class DataService {
     return courses;
   }
 
-  parseCourse(courseType: string, numberOfAttempts: number) {
-    const courseObject: any = {};
-    const courses: any = [];
-    //console.log('=======================');
-    //console.log(this.courseObject);
+  getCourseList(courseType: string) {
     let employeeCourseList:any = undefined;
     let courseList:any;
     if(this.employeeParsedData.industryType != '') {
@@ -453,6 +478,18 @@ export class DataService {
     } else {
       courseList = Object.keys(this.courseObject[courseType]);
     }
+    return courseList;
+
+  }
+
+  parseCourse(courseType: string, numberOfAttempts: number) {
+    const courseObject: any = {};
+    const courses: any = [];
+    //console.log('=======================');
+    //console.log(this.courseObject);
+    
+    let courseList:any = this.getCourseList(courseType);
+    
     console.log('Employee Course List');
     
     console.log(courseList);
@@ -460,7 +497,7 @@ export class DataService {
 
       const courseItem: any = {};
       courseItem.courseID = elem;
-      courseItem.courseDesc = this.courseObject[courseType][elem];
+      courseItem.courseDesc = this.courseDescList[elem];
       const attempts = [];
       const attemptSearchStr =
         courseType == 'prefoundational'
